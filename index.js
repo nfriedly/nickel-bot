@@ -9,7 +9,7 @@ if (!process.env.USERNAME || !process.env.PASSWORD) {
 }
 
 vo(function* () {
-    var nightmare = Nightmare({ show: true });
+    var nightmare = Nightmare({ show: false });
     yield nightmare
         .goto('https://wellnessforlifecenter.com/')
         .wait('input[name="standnavLogin"]')
