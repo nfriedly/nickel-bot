@@ -5,12 +5,17 @@
   "main": "index.js",
   "scripts": {
     "start": "node --harmony index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jshint index.js"
   },
   "author": "Nathan Friedly - http://nfriedly.com/",
   "license": "MIT",
+  "repository": "https://github.com/nfriedly/nickel-bot",
   "dependencies": {
+    "dotenv": "^1.2.0",
     "nightmare": "^2.0.7",
     "vo": "^1.0.3"
+  },
+  "devDependencies": {
+    "jshint": "^2.8.0"
   }
 }

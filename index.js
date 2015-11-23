@@ -3,13 +3,15 @@
 var Nightmare = require('nightmare');
 var vo = require('vo');
 
+require('dotenv').config({silent: true});
+
 if (!process.env.USERNAME || !process.env.PASSWORD) {
     console.error('Please set USERNAME and PASSWORD environment variables');
     process.exit(1);
 }
 
 vo(function* () {
-    var nightmare = Nightmare({ show: false });
+    var nightmare = new Nightmare({ show: false });
     yield nightmare
         .goto('https://wellnessforlifecenter.com/')
         .wait('input[name="standnavLogin"]')
@@ -28,7 +30,7 @@ vo(function* () {
         .goto('https://www.powerofvitality.com/vitalityportal/points/statement')
         .evaluate(function() {
             /*globals $*/
-            return $('tr.total td.align_right:eq(0)').text().trim()
+            return $('tr.total td.align_right:eq(0)').text().trim();
         });
     yield nightmare.end();
     return numPoints;
